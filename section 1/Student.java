@@ -20,7 +20,7 @@ public class Student {
 
     }
 
-    //şimdilik böyle yazdım tatlım :)))
+   
 
     public void study(){
         System.out.println("Study metodu çalışıyor.");

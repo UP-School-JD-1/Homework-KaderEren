@@ -18,7 +18,7 @@ public abstract class Student {
 
     }
 
-    // şimdilik böyle yazdım tatlım :)))
+
 
     public abstract void study();
 
