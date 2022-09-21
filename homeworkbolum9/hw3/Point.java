@@ -4,76 +4,67 @@ import java.lang.Math;
 
 public class Point {
 
-	private double x;
-	private double y;
+  private double x;
+  private double y;
 
-	// Başlatma Bloğu
+  // Başlatma Bloğu
 
-	{
-		x = 7;
-		y = 98;
-	}
+  {
+    x = 7;
+    y = 98;
+  }
 
-	public Point(double x, double y) {
-		this.setX(x);
-		this.setY(y);
+  public Point(double x, double y) {
+    this.setX(x);
+    this.setY(y);
+  }
 
-	}
+  public Point() {}
 
-	public Point() {
+  // GETTER AND SETTER
 
-	}
+  public double getY() {
+    return y;
+  }
 
-	// GETTER AND SETTER
+  public void setY(double y) {
+    this.y = y;
+  }
 
-	public double getY() {
-		return y;
-	}
+  public double getX() {
+    return x;
+  }
 
-	public void setY(double y) {
-		this.y = y;
-	}
+  public void setX(double x) {
+    this.x = x;
+  }
 
-	public double getX() {
-		return x;
-	}
+  // Bir nesnenin başka bir point nesnesine olan uzaklığı.
+  public double calculateDistance(double x2, double y2) {
+    double distance;
+    double temp = Math.pow((x - x2), 2) + Math.pow((y - y2), 2);
+    distance = Math.pow(temp, 0.5);
+    return distance;
+  }
 
-	public void setX(double x) {
-		this.x = x;
-	}
+  // Bir nesnenin merkeze olan uzaklığını hesaplanması.
+  public double distanceToCenter() {
+    return calculateDistance(0, 0);
+  }
 
-	// Bir nesnenin başka bir point nesnesine olan uzaklığı.
-	public double calculateDistance(double x2, double y2) {
-		double distance;
-		double temp = Math.pow((x - x2), 2) + Math.pow((y - y2), 2);
-		distance = Math.pow(temp, 0.5);
+  // metotla aynı koordinatlara sahip bir başka Point nesnesi oluşturup döndürmek.
+  public Point clone() {
+    return new Point(this.x, this.y);
+  }
 
-		return distance;
-	}
+  // bu metot ile nesneyi, "x" ya da "y" yönünde belirtilen miktar kadar hareket
+  // ettimek.
+  public void move(double k, double m) {
+    this.setX(getX() + k);
+    this.setY(getY() + m);
+  }
 
-	// Bir nesnenin merkeze olan uzaklığını hesaplanması.
-	public double distanceToCenter() {
-
-		return calculateDistance(0, 0);
-	}
-
-	// metotla aynı koordinatlara sahip bir başka Point nesnesi oluşturup döndürmek.
-
-	public Point clone() {
-		return new Point(this.x, this.y);
-	}
-	// bu metot ile nesneyi, "x" ya da "y" yönünde belirtilen miktar kadar hareket
-	// ettimek.
-
-	public void move(double k, double m) {
-		this.setX(getX() + k);
-		this.setY(getY() + m);
-
-		
-	}
-	
-	public String coordinates() {
-		return "("+getX()+","+getY()
-+")";	}
-
+  public String coordinates() {
+    return "(" + getX() + "," + getY() + ")";
+  }
 }
